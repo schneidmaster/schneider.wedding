@@ -24,19 +24,17 @@ module.exports = React.createClass
           <div className='header'>
             <h1>Korando-Schneider Wedding</h1>
           </div>
-          <div>
-            <div className='info'>
-              <div>
-                <img src={require('img/photos/9.jpg')} alt='Zach + Becca' />
-              </div>
-              <div>
-                <div className='vertical-center'>
-                  <h2>Zach Schneider</h2>
-                  <p className='and'>- and -</p>
-                  <h2>Becca Korando</h2>
-                  <h3>November 19, 2016</h3>
-                  <h3>(<Countdown options={endDate: 1479600000000} />)</h3>
-                </div>
+          <div className='info'>
+            <div>
+              <img src={require('img/photos/9.jpg')} alt='Zach + Becca' />
+            </div>
+            <div>
+              <div className='vertical-center'>
+                <h2>Zach Schneider</h2>
+                <p className='and'>- and -</p>
+                <h2>Becca Korando</h2>
+                <h3>November 19, 2016</h3>
+                <h3>(<Countdown options={endDate: 1479600000000} />)</h3>
               </div>
             </div>
           </div>
