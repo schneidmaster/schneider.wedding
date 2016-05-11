@@ -8,7 +8,7 @@ params =
  
   s3Params:
     ACL: 'public-read'
-    Bucket: 'BUCKET_NAME'
+    Bucket: 'schneider.wedding'
 
 uploader = client.uploadDir(params)
 uploader.on('error', (err) ->
