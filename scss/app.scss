@@ -1,5 +1,6 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+@import '~react-image-gallery/src/image-gallery';
 
 @import 'fonts';
 
@@ -9,6 +10,12 @@ $orange: #CA490D;
 
 body {
   margin: 0;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  color: $navy;
+  font-size: 64px;
 }
 
 div.Section {
@@ -24,10 +31,16 @@ div.Section {
     align-items: stretch; /* align items in Cross Axis */
     align-content: stretch; /* Extra space in Cross Axis */
 
+    & > div {
+      flex: 1;
+    }
+  }
+
+  div.cover {
     div {
       flex: 1;
     }
-
+    
     div.header, div.rsvp {
       display: flex;
       align-items: center;
@@ -40,12 +53,6 @@ div.Section {
       margin-left: 20%;
       margin-right: 20%;
       align-items: center;
-    }
-
-    h1 {
-      font-family: 'Pacifico', cursive;
-      color: $navy;
-      font-size: 64px;
     }
 
     h2 {
@@ -92,7 +99,27 @@ div.Section {
     }
   }
 
-  &.first {
-    // background-color: $orange;
+  div.gallery {
+    div.header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    div.gallery-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 3;
+
+      section.image-gallery {
+        width: 80%;
+
+        div.image-gallery-image img {
+          max-height: 400px;
+          width: auto;
+        }
+      }
+    }
   }
 }
