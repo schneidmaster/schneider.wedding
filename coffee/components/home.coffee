@@ -1,5 +1,4 @@
 React     = require('react')
-{Link}    = require('react-router')
 Countdown = require('react-count-down')
 Gallery   = require('react-image-gallery').default
 $         = require('jquery')
@@ -42,7 +41,7 @@ module.exports = React.createClass
             </div>
           </div>
           <div className='rsvp'>
-            <Link to='/rsvp' className='btn'>RSVP</Link>
+            <a href='/rsvp' className='btn'>RSVP</a>
           </div>
         </div>
       </div>

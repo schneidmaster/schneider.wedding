@@ -198,6 +198,60 @@ div.section {
   }
 }
 
+form.rsvp {
+  margin-left: 20%;
+  margin-right: 20%;
+
+  label {
+    display: block;
+    font-family: 'Poiret One', cursive;
+    font-weight: 700;
+    color: $orange;
+    font-size: 32px;
+    margin-top: 25px;
+
+    &.checkbox {
+      display: inline-block;
+      color: $navy;
+      font-size: 24px;
+      margin-left: 20px;
+    }
+  }
+
+  input[type=text] {
+    margin-top: 15px;
+    padding: 15px;
+    background: none;
+    border: none;
+    border-bottom: solid 2px $cornflower;
+    font-family: 'Poiret One', cursive;
+    color: $navy;
+    outline: none;
+    font-size: 24px;
+  }
+
+  button {
+    display: block;
+    background-color: $navy;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: 'Poiret One', cursive;
+    font-weight: 700;
+    font-size: 24px;
+    margin: auto;
+    margin-top: 25px;
+    border: none;
+    outline: none;
+
+    &:hover {
+      background-color: $cornflower;
+      cursor: pointer;
+    }
+  }
+}
+
 @media screen and (max-width: 1580px) {
   div.section div.cover {
     img {

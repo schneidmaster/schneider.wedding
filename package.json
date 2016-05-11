@@ -29,7 +29,6 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "fullpage.js": "^2.7.9",
-    "google-form": "^1.0.2",
     "html-webpack-plugin": "^2.7.2",
     "jquery": "^2.2.3",
     "json-loader": "^0.5.4",
