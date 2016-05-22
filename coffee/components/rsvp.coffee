@@ -1,6 +1,6 @@
 React                                                   = require('react')
 {Row, Col, FormGroup, ControlLabel, FormControl, Radio} = require('react-bootstrap')
-$                                                       = require('jquery')
+ajax                                                    = require('ajax-easy')
 
 module.exports = React.createClass
   displayName: 'RSVP'
@@ -15,13 +15,16 @@ module.exports = React.createClass
 
   submit: (e) ->
     e.preventDefault()
-    response =
-      'entry.2116930182': @state.name
-      'entry.416515207': @state.attend
-      'entry.2075158502': @state.guest
-      'entry.243214034': @state.guestName
 
-    $.post 'https://docs.google.com/a/schneid.io/forms/d/1oDfplfEhylpoAMq_L53gJGspBo9sixztVWZHemQVif4/formResponse', response
+    ajax(
+      url: 'https://docs.google.com/a/schneid.io/forms/d/1oDfplfEhylpoAMq_L53gJGspBo9sixztVWZHemQVif4/formResponse'
+      type: 'post'
+      data:
+        'entry.2116930182': @state.name
+        'entry.416515207': @state.attend
+        'entry.2075158502': @state.guest
+        'entry.243214034': @state.guestName
+    )
 
   render: ->
     <div className='container-fluid'>
