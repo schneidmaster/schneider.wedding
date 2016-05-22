@@ -157,56 +157,6 @@ a.btn {
   }
 }
 
-.rsvp {
-  text-align: left;
-
-  h1 {
-    text-align: center;
-  }
-
-  form {
-    .control-label {
-      font-family: 'Poiret One', cursive;
-      font-weight: 700;
-      color: $orange;
-      font-size: 32px;
-    }
-
-    input[type=text] {
-      padding: 15px;
-      font-family: Poiret One,cursive;
-      outline: none;
-      font-size: 24px;
-      background: none;
-      border: none;
-      border-bottom: 2px solid $cornflower;
-      color: $navy;
-      border-radius: 0px;
-      box-shadow: none;
-    }
-
-    .form-group {
-      margin-top: 30px;
-      margin-bottom: 30px;
-    }
-
-    label.radio-inline {
-      font-family: Poiret One,cursive;
-      font-weight: 700;
-      color: $navy;
-      font-size: 20px;
-
-      input {
-        margin-top: 5px;
-      }
-    }
-
-    .rsvp-btn .btn {
-      font-size: 20px;
-    }
-  }
-}
-
 // Bootstrap xs breakpoint
 @media screen and (max-width: 768px) {
   .cover .rsvp-btn {
