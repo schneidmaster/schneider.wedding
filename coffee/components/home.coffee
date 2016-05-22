@@ -1,25 +1,12 @@
 React              = require('react')
 {Row, Col, Button} = require('react-bootstrap')
 Countdown          = require('react-count-down')
-Lightbox           = require('react-images').default
-$                  = require('jquery')
+Gallery            = require('components/gallery')
 
 module.exports = React.createClass
   displayName: 'Home'
 
-  getInitialState: ->
-    {
-      isOpen: false
-      currentImage: 0
-    }
-
-  selectImage: (currentImage, e) ->
-    e.preventDefault()
-    @setState(isOpen: true, currentImage: currentImage)
-
   render: ->
-    images = ({ src: require("img/photos/#{i}.jpg"), thumbnail: require("img/photos/#{i}.thumb.jpg") } for i in [1..22])
-
     <div className='container-fluid'>
       <Row className='section cover vertical-align'>
         <Col xs=12>
@@ -91,22 +78,7 @@ module.exports = React.createClass
           </Row>
           <Row>
             <Col md=8 mdOffset=2>
-              <div className='gallery-wrapper'>
-                {for img, idx in images
-                  <div key=idx style={backgroundImage: "url(#{img.thumbnail})"} onClick={@selectImage.bind(@, idx)} className='gallery-thumb' />
-                }
-                <div className='gallery-thumb spacer' />
-                <div className='gallery-thumb spacer' />
-              </div>
-              <Lightbox 
-                backdropClosesModal=true 
-                currentImage={@state.currentImage} 
-                images={images} 
-                isOpen={@state.isOpen}
-                onClickPrev={=> @setState(currentImage: @state.currentImage - 1)} 
-                onClickNext={=> @setState(currentImage: @state.currentImage + 1)} 
-                onClose={=> @setState(currentImage: 0, isOpen: false)} 
-                />
+              <Gallery />
             </Col>
           </Row>
         </Col>
