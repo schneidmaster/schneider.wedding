@@ -4,9 +4,6 @@ React      = require('react')
 module.exports = React.createClass
   displayName: 'RSVP'
 
-  componentDidMount: ->
-
-
   render: ->
     <div className='container-fluid'>
       <Row className='section rsvp vertical-align'>
