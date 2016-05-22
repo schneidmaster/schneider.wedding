@@ -206,3 +206,22 @@ a.btn {
     }
   }
 }
+
+// Bootstrap xs breakpoint
+@media screen and (max-width: 768px) {
+  .cover .rsvp-btn {
+    margin-bottom: 25px;
+  }
+
+  div.cover div.countdown {
+    font-size: 20px;
+  }
+
+  div.details img {
+    margin-bottom: 25px;
+  }
+
+  .gallery .gallery-wrapper .gallery-thumb .spacer {
+    display: none;
+  }
+}
