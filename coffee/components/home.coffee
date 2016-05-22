@@ -1,93 +1,114 @@
-React     = require('react')
-Countdown = require('react-count-down')
-Gallery   = require('react-image-gallery').default
-$         = require('jquery')
+React              = require('react')
+{Row, Col, Button} = require('react-bootstrap')
+Countdown          = require('react-count-down')
+Lightbox           = require('react-images').default
+$                  = require('jquery')
 
 module.exports = React.createClass
   displayName: 'Home'
 
-  componentDidMount: ->
-    return if typeof(window) is 'undefined'
-    fullpage = require('fullpage.js')
-    $('#fullpage').fullpage(
-      anchors: ['cover', 'details', 'gallery']
-      fitToSectionDelay: 250
-      responsiveWidth: 800
-      navigation: true
-      navigationPosition: 'right'
-    )
+  getInitialState: ->
+    {
+      isOpen: false
+      currentImage: 0
+    }
+
+  selectImage: (currentImage, e) ->
+    e.preventDefault()
+    @setState(isOpen: true, currentImage: currentImage)
 
   render: ->
-    <div id='fullpage'>
-      <div className='section'>
-        <div className='content cover'>
-          <div className='header'>
+    images = ({ src: require("img/photos/#{i}.jpg"), thumbnail: require("img/photos/#{i}.thumb.jpg") } for i in [1..22])
+
+    <div className='container-fluid'>
+      <Row className='section cover vertical-align'>
+        <Col xs=12>
+          <Row>
             <h1>Korando-Schneider Wedding</h1>
-          </div>
-          <div className='info'>
-            <div>
+          </Row>
+          <Row className='row-padding'>
+            <Col mdOffset=2 md=4 xs=12>
               <img src={require('img/photos/9.jpg')} alt='Zach + Becca' />
-            </div>
-            <div>
-              <div className='vertical-center'>
-                <h2>Zach Schneider</h2>
-                <p className='and'>- and -</p>
-                <h2>Becca Korando</h2>
-                <h3>November 19, 2016</h3>
-                <h3>(<Countdown options={endDate: 1479600000000} />)</h3>
+            </Col>
+            <Col md=4 xs=12>
+              <h2>Zach Schneider</h2>
+              <p className='and'>- and -</p>
+              <h2>Becca Korando</h2>
+              <p className='date'>November 19, 2016</p>
+              <div className='countdown'>
+                (<Countdown options={endDate: 1479600000000} />)
               </div>
-            </div>
-          </div>
-          <div className='rsvp'>
-            <a href='/rsvp' className='btn'>RSVP</a>
-          </div>
-        </div>
-      </div>
-      <div className='section'>
-        <div className='content details'>
-          <div className='header'>
+            </Col>
+          </Row>
+          <Row className='rsvp-btn'>
+            <a href='/rsvp'>
+              <Button>RSVP</Button>
+            </a>
+          </Row>
+        </Col>
+      </Row>
+
+      <Row className='section details vertical-align'>
+        <Col xs=12>
+          <Row>
             <h1>Details</h1>
-          </div>
-          <div className='info'>
-            <div className='flex-columns'>
-              <div>
-                <h3>
-                  <a href='http://www.theweddinggarden.net/#!events/cwi' target='_blank'>The Wedding Garden</a><br />
-                  215 East Walnut, Carbondale, IL
-                </h3>
-                <p className='center'>
-                  We invite you to join us at The Wedding Garden right in the heart of Carbondale to celebrate our wedding. The venue features indoor seating, an outdoor area with a bonfire, and a limited open bar.
-                </p>
-                <img src={require('img/weddinggarden.jpg')} alt='The Wedding Garden' />
-              </div>
-              <div>
-                <h3 className='section-header'>Flights</h3>
-                <p className='info-section'>
-                  The closest major airport is Lambert-St. Louis International Airport (STL) -- about a two hour drive from Carbondale. You can also find cheap commuter flights from STL to <a href='http://www.wilcoairport.com/' target='_blank'>Williamson County Regional Airport</a> (about twenty minutes from Carbondale) if you don't mind riding on a small Cessna!
-                </p>
+          </Row>
+          <Row className='info'>
+            <Col mdOffset=2 md=3 xs=12 className='left'>
+              <h3>
+                <a href='http://www.theweddinggarden.net/#!events/cwi' target='_blank'>The Wedding Garden</a><br />
+                215 East Walnut, Carbondale, IL
+              </h3>
+              <p className='center'>
+                We invite you to join us at The Wedding Garden right in the heart of Carbondale to celebrate our wedding. The venue features indoor seating, an outdoor area with a bonfire, and a limited open bar.
+              </p>
+              <img src={require('img/weddinggarden.jpg')} alt='The Wedding Garden' />
+            </Col>
+            <Col md=5 xs=12 className='right'>
+              <h3>Flights</h3>
+              <p>
+                The closest major airport is Lambert-St. Louis International Airport (STL) -- about a two hour drive from Carbondale. You can also find cheap commuter flights from STL to <a href='http://www.wilcoairport.com/' target='_blank'>Williamson County Regional Airport</a> (about twenty minutes from Carbondale) if you don't mind riding on a small Cessna!
+              </p>
 
-                <h3 className='section-header'>Hotels</h3>
-                <p className='info-section'>
-                  Carbondale has a number of affordable hotel options, ranging from the <a href='http://www.super8.com/hotels/illinois/carbondale/super-8-carbondale/hotel-overview' target='_blank'>Super 8</a> at about $65/night to the <a href='http://hamptoninn3.hilton.com/en/hotels/illinois/hampton-inn-carbondale-CRBILHX/index.html' target='_blank'>Hampton Inn</a> at about $130/night. There are also a number of traditional bed-and-breakfasts and Airbnb options in the area, albeit with a somewhat longer drive.
-                </p>
+              <h3>Hotels</h3>
+              <p>
+                Carbondale has a number of affordable hotel options, ranging from the <a href='http://www.super8.com/hotels/illinois/carbondale/super-8-carbondale/hotel-overview' target='_blank'>Super 8</a> at about $65/night to the <a href='http://hamptoninn3.hilton.com/en/hotels/illinois/hampton-inn-carbondale-CRBILHX/index.html' target='_blank'>Hampton Inn</a> at about $130/night. There are also a number of traditional bed-and-breakfasts and Airbnb options in the area, albeit with a somewhat longer drive.
+              </p>
 
-                <h3 className='section-header'>Transportation</h3>
-                <p className='info-section'>
-                  Unfortunately, Uber has not yet seen fit to bestow its presence upon Carbondale. A rental car is highly recommended if it's in your budget. There are a few local cab companies that are all equally terrible; the least bad is Jet Taxi which you can reach at <a href='tel:+16189644412'>(618) 964-4412</a>. Call early and carry cash!
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className='section'>
-        <div className='content gallery'>
-          <div className='header'>
+              <h3>Transportation</h3>
+              <p>
+                Unfortunately, Uber has not yet seen fit to bestow its presence upon Carbondale. A rental car is highly recommended if it's in your budget. There are a few local cab companies that are all equally terrible; the least bad is Jet Taxi which you can reach at <a href='tel:+16189644412'>(618) 964-4412</a>. Call early and carry cash!
+              </p>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+
+      <Row className='section gallery vertical-align'>
+        <Col xs=12>
+          <Row>
             <h1>Zach + Becca</h1>
-          </div>
-          <div className='gallery-wrapper'>
-            <Gallery items={ { original: require("img/photos/#{i}.jpg"), thumbnail: require("img/photos/#{i}.thumb.jpg") } for i in [1..22] } />
-          </div>
-        </div>
-      </div>
+          </Row>
+          <Row>
+            <Col md=8 mdOffset=2>
+              <div className='gallery-wrapper'>
+                {for img, idx in images
+                  <div key=idx style={backgroundImage: "url(#{img.thumbnail})"} onClick={@selectImage.bind(@, idx)} className='gallery-thumb' />
+                }
+                <div className='gallery-thumb spacer' />
+                <div className='gallery-thumb spacer' />
+              </div>
+              <Lightbox 
+                backdropClosesModal=true 
+                currentImage={@state.currentImage} 
+                images={images} 
+                isOpen={@state.isOpen}
+                onClickPrev={=> @setState(currentImage: @state.currentImage - 1)} 
+                onClickNext={=> @setState(currentImage: @state.currentImage + 1)} 
+                onClose={=> @setState(currentImage: 0, isOpen: false)} 
+                />
+            </Col>
+          </Row>
+        </Col>
+      </Row>
     </div>

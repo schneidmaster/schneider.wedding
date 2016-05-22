@@ -1,51 +1,78 @@
-React = require('react')
-$     = require('jquery')
+React                                                   = require('react')
+{Row, Col, FormGroup, ControlLabel, FormControl, Radio} = require('react-bootstrap')
+$                                                       = require('jquery')
 
 module.exports = React.createClass
   displayName: 'RSVP'
 
+  getInitialState: ->
+    {
+      name: ''
+      attend: null
+      guest: null
+      guestName: ''
+    }
+
   submit: (e) ->
     e.preventDefault()
     response =
-      'entry.2116930182': $('#name').val()
-      'entry.416515207': $('#attend_yes').is(':checked')
-      'entry.2075158502': $('#guest_yes').is(':checked')
-      'entry.243214034': $('#guest_name').val()
+      'entry.2116930182': @state.name
+      'entry.416515207': @state.attend
+      'entry.2075158502': @state.guest
+      'entry.243214034': @state.guestName
 
     $.post 'https://docs.google.com/a/schneid.io/forms/d/1oDfplfEhylpoAMq_L53gJGspBo9sixztVWZHemQVif4/formResponse', response
 
   render: ->
-    <div className='section'>
-      <div className='content'>
-        <h1>RSVP</h1>
-        <form method='POST' className='rsvp' onSubmit={@submit}>
-     
-          <label htmlFor='name'>Name</label>
-          <input id='name' type='text' name='entry.2116930182' placeholder='John Weddinggoer' />
+    <div className='container-fluid'>
+      <Row className='section rsvp vertical-align'>
+        <Col xs=12>
+          <Row>
+            <h1>RSVP</h1>
+          </Row>
+          <Row>
+            <Col md=4 mdOffset=4 xs=12>
+              <form method='POST' className='rsvp' onSubmit={@submit}>
+                <FormGroup>
+                  <ControlLabel>Name</ControlLabel>
+                  <FormControl type='text' value={@state.value} placeholder='John Weddinggoer' onChange={ (e) => @setState(name: e.target.value) } />
+                </FormGroup>
 
-          <label>Will you attend?</label>
+                <FormGroup>
+                  <ControlLabel>Will you attend?</ControlLabel>
+                  <br />
+                  <Radio inline checked={@state.attend is true} onChange={ (e) => @setState(attend: e.target.value is 'on') }>
+                    Yes
+                  </Radio>
+                  {' '}
+                  <Radio inline checked={@state.attend is false} onChange={ (e) => @setState(attend: e.target.value isnt 'on') }>
+                    No
+                  </Radio>
+                </FormGroup>
 
-          <label htmlFor='attend_yes' className='checkbox'>
-            <input id='attend_yes' type='radio' name='entry.416515207' /> Yes
-          </label>
-          <label htmlFor='attend_no' className='checkbox'>
-            <input id='attend_no' type='radio' name='entry.416515207' /> No
-          </label>
+                <FormGroup>
+                  <ControlLabel>Are you bringing a guest?</ControlLabel>
+                  <br />
+                  <Radio inline checked={@state.guest is true} onChange={ (e) => @setState(guest: e.target.value is 'on') }>
+                    Yes
+                  </Radio>
+                  {' '}
+                  <Radio inline checked={@state.guest is false} onChange={ (e) => @setState(guest: e.target.value isnt 'on') }>
+                    No
+                  </Radio>
+                </FormGroup>
 
-          <label>Are you bringing a guest?</label>
+                <FormGroup>
+                  <ControlLabel>If yes, what is your guest's name?</ControlLabel>
+                  <FormControl type='text' value={@state.value} placeholder='Jane Weddinggoer' onChange={ (e) => @setState(name: e.target.value) } />
+                </FormGroup>
 
-          <label htmlFor='guest_yes' className='checkbox'>
-            <input id='guest_yes' type='radio' name='entry.2075158502' /> Yes
-          </label>
-          <label htmlFor='guest_no' className='checkbox'>
-            <input id='guest_no' type='radio' name='entry.2075158502' /> No
-          </label>
-
-          <label htmlFor='guest_name'>If yes, what is your guest's name?</label>
-          <input id='guest_name' type='text' name='entry.243214034' placeholder='Jane Weddingguest' />
-
-          <button type='submit'>Submit RSVP</button>
-
-        </form>
-      </div>
+                <FormGroup className='rsvp-btn'>
+                  <button type='submit' className='btn'>Submit RSVP</button>
+                </FormGroup>
+              </form>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
     </div>

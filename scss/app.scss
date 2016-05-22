@@ -1,6 +1,5 @@
-@import '~fullpage.js/jquery.fullPage.css';
-@import '~react-image-gallery/src/image-gallery';
-
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 @import 'fonts';
 
 $navy: #233247;
@@ -9,6 +8,7 @@ $orange: #CA490D;
 
 body {
   margin: 0;
+  font-family: Raleway, sans-serif;
 }
 
 h1 {
@@ -31,295 +31,178 @@ a.btn {
   text-decoration: none;
 }
 
-div.section {
-  div.content {
-    width: 100%;
-    height: 100%;
-
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    
-    justify-content: flex-start; /* align items in Main Axis */
-    align-items: stretch; /* align items in Cross Axis */
-    align-content: stretch; /* Extra space in Cross Axis */
-
-    & > div {
-      flex: 1;
-    }
-  }
-
-  div.cover {
-    div.header, div.rsvp {
-      flex: 1;
-      flex-shrink: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    div.info {
-      flex: 3;
-      display: flex;
-      flex-direction: row;
-      margin-left: 20%;
-      margin-right: 20%;
-      align-items: center;
-    }
-
-    img {
-      width: 600px;
-    }
-
-    p.and {
-      font-family: 'Pacifico', cursive;
-      font-size: 32px;
-      color: $navy;
-    }
-
-    h3 {
-      font-family: 'Pacifico', cursive;
-      color: $navy;
-      font-size: 40px;
-
-      &:last-of-type {
-        color: $cornflower;
-        font-size: 20px;
-        padding-left: 25px;
-
-        div.react-count-down {
-          display: inline;
-        }
-      }
-    }
-
-    a.btn {
-      font-family: 'Poiret One', cursive;
-      font-weight: 700;
-      background-color: $navy;
-      font-size: 48px;
-      color: white;
-
-      &:hover {
-        background-color: $cornflower;
-      }
-    }
-  }
-
-  div.details {
-    div.header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex: 1;
-      flex-shrink: 1;
-    }
-
-    div.info {
-      margin-left: 20%;
-      margin-right: 20%;
-      flex-grow: 5;
-      text-align: left;
-      font-family: 'Raleway', sans-serif;
-
-      h3 {
-        text-align: center;
-        color: $navy;
-        font-family: 'Poiret One', cursive;
-        font-weight: 700;
-        margin-top: 0px;
-
-        &.section-header {
-          color: $orange;
-          margin-bottom: 0px;
-        }
-
-        a {
-          color: $orange;
-        }
-      }
-
-      p {
-        padding: 15px;
-
-        &.info-section {
-          padding: 0px;
-        }
-
-        &.center {
-          text-align: center;
-        }
-      }
-
-      img {
-        width: 100%;
-      }
-
-      div.flex-columns {
-        display: flex;
-        flex-direction: row;
-
-        div {
-          margin: 15px;
-        }
-
-        div:first-child {
-          flex: 1;
-        }
-
-        div:last-child {
-          flex: 2;
-        }
-      }
-    }
-  }
-
-  div.gallery {
-    div.header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    div.gallery-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex: 3;
-
-      section.image-gallery {
-        width: 80%;
-
-        div.image-gallery-image img {
-          max-height: 400px;
-          width: auto;
-        }
-      }
-    }
-  }
+.section {
+  min-height: 100%;
+  text-align: center;
 }
 
-form.rsvp {
-  margin-left: 20%;
-  margin-right: 20%;
+.vertical-align {
+  display: flex;
+  align-items: center;
+}
 
-  label {
-    display: block;
-    font-family: 'Poiret One', cursive;
-    font-weight: 700;
-    color: $orange;
-    font-size: 32px;
-    margin-top: 25px;
+.row-padding {
+  padding: 75px;
+}
 
-    &.checkbox {
-      display: inline-block;
-      color: $navy;
-      font-size: 24px;
-      margin-left: 20px;
-    }
-  }
+.center {
+  text-align: center;
+}
 
-  input[type=text] {
-    margin-top: 15px;
-    padding: 15px;
-    background: none;
-    border: none;
-    border-bottom: solid 2px $cornflower;
-    font-family: 'Poiret One', cursive;
-    color: $navy;
-    outline: none;
-    font-size: 24px;
-  }
+.rsvp-btn {
+  text-align: center;
 
-  button {
-    display: block;
+  .btn {
     background-color: $navy;
     color: white;
-    padding: 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-family: 'Poiret One', cursive;
+    font-family: Poiret One,cursive;
     font-weight: 700;
-    font-size: 24px;
-    margin: auto;
-    margin-top: 25px;
-    border: none;
-    outline: none;
+    font-size: 48px;
 
     &:hover {
       background-color: $cornflower;
-      cursor: pointer;
     }
   }
 }
 
-@media screen and (max-width: 1580px) {
-  div.section div.cover {
+.cover {
+  img {
+    width: 100%;
+  }
+
+  p.and {
+    font-family: Pacifico,cursive;
+    font-size: 32px;
+    color: $navy;
+  }
+
+  p.date {
+    font-family: Pacifico,cursive;
+    font-size: 40px;
+    color: $navy;
+  }
+
+  div.countdown {
+    font-family: Pacifico,cursive;
+    font-size: 24px;
+    color: $cornflower;
+
+    div.react-count-down {
+      display: inline;
+    }
+  }
+}
+
+.details {
+  .info {
+    margin-top: 25px;
+
     img {
-      width: 400px;
-    }
-
-    h2 {
-      font-size: 24px;
-    }
-
-    p.and {
-      font-size: 24px;
+      width: 100%;
     }
 
     h3 {
+      text-align: center;
+      font-family: Poiret One,cursive;
+      font-weight: 700;
+      margin-top: 0;
+      color: $orange;
+      margin-bottom: 0;
+    }
+
+    .left {
+      h3 {
+        color: $navy;
+
+        a {
+          color: $orange;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    p {
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+  }
+}
+
+.gallery {
+  .gallery-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+
+    .gallery-thumb {
+      flex: 1;
+      display: flex;
+      flex-basis: 20%;
+      justify-content: space-between;
+      align-items: stretch;
+      align-content: space-between;
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 25px;
+
+      &:before {
+        content: "";
+        display: block;
+        margin-top: 100%;
+      }
+
+      &:not(.spacer):hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.rsvp {
+  text-align: left;
+
+  h1 {
+    text-align: center;
+  }
+
+  form {
+    .control-label {
+      font-family: 'Poiret One', cursive;
+      font-weight: 700;
+      color: $orange;
+      font-size: 32px;
+    }
+
+    input[type=text] {
+      padding: 15px;
+      font-family: Poiret One,cursive;
+      outline: none;
       font-size: 24px;
-    }
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  div.section div.cover {
-    h1 {
-      font-size: 48px;
+      background: none;
+      border: none;
+      border-bottom: 2px solid $cornflower;
+      color: $navy;
+      border-radius: 0px;
+      box-shadow: none;
     }
 
-    img {
-      width: 300px;
+    .form-group {
+      margin-top: 30px;
+      margin-bottom: 30px;
     }
 
-    a.btn {
-      font-size: 36px;
-    }
-  }
+    label.radio-inline {
+      font-family: Poiret One,cursive;
+      font-weight: 700;
+      color: $navy;
+      font-size: 20px;
 
-  div.section div.details {
-    div.info {
-      margin-left: 5%;
-      margin-right: 5%;
-    }
-  }
-}
-
-@media screen and (max-width: 800px) {
-  div.section div.cover {
-    div.info {
-      flex-direction: column;
-    }
-  }
-}
-
-@media screen and (max-width: 650px) {
-  div.section div.details {
-    div.info div.flex-columns {
-      flex-direction: column;
-    }
-  }
-}
-
-@media screen and (max-width: 600px) {
-  div.section div.cover {
-    h1 {
-      font-size: 36px;
+      input {
+        margin-top: 5px;
+      }
     }
 
-    a.btn {
-      font-size: 30px;
+    .rsvp-btn .btn {
+      font-size: 20px;
     }
   }
 }
