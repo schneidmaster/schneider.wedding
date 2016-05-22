@@ -42,6 +42,7 @@ module.exports =
       new SitemapPlugin('https://schneider.wedding', paths)
       new webpack.DefinePlugin(
         __PROD__: process.env.BUILD_PROD is 'true'
+        'process.env.NODE_ENV': if process.env.BUILD_PROD is 'true' then '"production"' else '"development"'
       )
     ]
 
