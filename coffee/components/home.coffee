@@ -47,7 +47,7 @@ module.exports = React.createClass
                 215 East Walnut, Carbondale, IL
               </h3>
               <p className='center'>
-                We invite you to join us at The Wedding Garden right in the heart of Carbondale to celebrate our wedding. The venue features indoor seating, an outdoor area with a bonfire, and a limited open bar.
+                We invite you to join us at The Wedding Garden right in the heart of Carbondale to celebrate our wedding. The venue features indoor seating, an outdoor area with a bonfire, and an open bar.
               </p>
               <img src={require('img/weddinggarden.jpg')} alt='The Wedding Garden' />
             </Col>
