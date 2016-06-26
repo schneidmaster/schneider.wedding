@@ -30,5 +30,7 @@ module.exports = React.createClass
     ]
 
     <Html title='Korando-Schneider Wedding' metatags={metatags} scripts=['/production.min.js'] stylesheets=['/production.min.css']>
-      <div id='app'></div>
+      <div id='app'>
+        {@props.children}
+      </div>
     </Html>

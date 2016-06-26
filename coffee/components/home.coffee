@@ -66,6 +66,11 @@ module.exports = React.createClass
               <p>
                 Unfortunately, Uber has not yet seen fit to bestow its presence upon Carbondale. A rental car is highly recommended if it's in your budget. There are a few local cab companies that are all equally terrible; the least bad is Jet Taxi which you can reach at <a href='tel:+16189644412'>(618) 964-4412</a>. Call early and carry cash!
               </p>
+
+              <h3>Registry</h3>
+              <p>
+                We are registered with <a href='http://www.target.com/gift-registry/giftgiver?registryId=i9jjaawpvVC4Imm6HvBl6Q' target='_blank'>Target</a> and <a href='http://www.bedbathandbeyond.com/store/giftregistry/view_registry_guest.jsp?eventType=Wedding&registryId=543533008' target='_blank'>Bed Bath and Beyond</a>.
+              </p>
             </Col>
           </Row>
         </Col>
