@@ -59,7 +59,7 @@ module.exports = React.createClass
 
               <h3>Hotels</h3>
               <p>
-                Carbondale has a number of affordable hotel options, ranging from the <a href='http://www.super8.com/hotels/illinois/carbondale/super-8-carbondale/hotel-overview' target='_blank'>Super 8</a> at about $65/night to the <a href='http://hamptoninn3.hilton.com/en/hotels/illinois/hampton-inn-carbondale-CRBILHX/index.html' target='_blank'>Hampton Inn</a> at about $130/night. There are also a variety of traditional bed-and-breakfasts and Airbnb options in the area, albeit with a somewhat longer drive.
+                Carbondale has a number of affordable hotel options, ranging from the <a href='http://www.super8.com/hotels/illinois/carbondale/super-8-carbondale/hotel-overview' target='_blank'>Super 8</a> at about $65/night to the <a href='http://hamptoninn3.hilton.com/en/hotels/illinois/hampton-inn-carbondale-CRBILHX/index.html' target='_blank'>Hampton Inn</a> or <a href='http://www.ihg.com/holidayinn/hotels/us/en/carbondale/mdhci/hoteldetail' target='_blank'>Holiday Inn</a> at about $130/night. There are also a variety of traditional bed-and-breakfasts and Airbnb options in the area, albeit with a somewhat longer drive.
               </p>
 
               <h3>Transportation</h3>
