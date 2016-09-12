@@ -1,6 +1,6 @@
 React              = require('react')
 {Row, Col, Button} = require('react-bootstrap')
-Countdown          = require('react-count-down')
+Countdown          = require('react-count-down').default
 Gallery            = require('components/gallery')
 
 module.exports = React.createClass
