@@ -44,7 +44,7 @@ module.exports = React.createClass
             <Col mdOffset=2 md=3 xs=12 className='left'>
               <h3>
                 <a href='http://www.theweddinggarden.net/#!events/cwi' target='_blank'>The Wedding Garden</a><br />
-                215 East Walnut, Carbondale, IL
+                1215 East Walnut, Carbondale, IL
               </h3>
               <p className='center'>
                 We invite you to join us at The Wedding Garden right in the heart of Carbondale to celebrate our wedding. Reception to follow at the venue, featuring indoor seating, an outdoor area with a bonfire, a buffet-style dinner, and refreshments.
