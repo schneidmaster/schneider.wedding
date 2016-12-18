@@ -1,6 +1,6 @@
 React              = require('react')
 {Row, Col, Button} = require('react-bootstrap')
-Countdown          = require('react-count-down').default
+{default: TimeAgo} = require('react-timeago')
 Gallery            = require('components/gallery')
 
 module.exports = React.createClass
@@ -23,7 +23,7 @@ module.exports = React.createClass
               <h2>Becca Korando</h2>
               <p className='date'>November 19, 2016</p>
               <div className='countdown'>
-                (<Countdown options={endDate: 1479600000000} />)
+                (Happily ever after started <TimeAgo date='2016-11-19T12:00:00-06:00' />)
               </div>
             </Col>
           </Row>
