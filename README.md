@@ -8,14 +8,15 @@ Wedding website!
 
 * git
 * npm
+* yarn
 
 ### Setup
 
 1. Clone the repository (`git clone git@github.com:schneidmaster/schneider.wedding.git`)
-2. Install packages: `npm install`
-3. Start the development server: `npm start`
+2. Install packages: `yarn install`
+3. Start the development server: `yarn start`
 4. Open [http://localhost:8080](http://localhost:8080) in a browser window
-5. Run `npm run webpack` to generate a minified version of the code in the `dist` directory, suitable for deployment
+5. Run `yarn run webpack` to generate a minified version of the code in the `dist` directory, suitable for deployment
 
 ## Contributing
 
